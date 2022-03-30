@@ -14,8 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/',[CategoryController::class,'index'])->name('/');
 
 Route::post('/save-category',[CategoryController::class,'saveCategory'])->name('save-category');
+Route::get('get-all-category',[CategoryController::class,'getAllCategory'])->name('get-all-category');
+Route::get('delete-category/{id}',[CategoryController::class,'deleteCategory']);
+Route::get('edit-category/{id}',[CategoryController::class,'editCategory']);
+Route::post('update-category/{id}',[CategoryController::class,'updateCategory']);
+
